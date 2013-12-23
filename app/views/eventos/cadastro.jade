@@ -1,0 +1,21 @@
+<section data-ng-controller="EventosController">
+  <form class="form-horizontal" data-ng-submit="create()">
+    <div class="control-group">
+      <label class="control-label" for="title">Nome</label>
+      <div class="controls">
+        <input type="text" data-ng-model="name" id="name" placeholder="Nome" required>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="content">Local</label>
+      <div class="controls">
+        <input type="text" data-ng-model="locale" id="locale" placeholder="Local" required>
+      </div>
+    </div>
+    <div class="control-group">
+      <div class="controls">
+        <input type="submit" class="btn">
+      </div>
+    </div>
+  </form>
+</section>

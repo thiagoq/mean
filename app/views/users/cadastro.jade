@@ -1,0 +1,34 @@
+extends auth
+
+block auth
+  form.signup.form-horizontal(action="/cadastro", method="post")
+    .control-group
+      label.control-label(for='name') Nome:
+      .controls
+        input#name(type='text', name="name", placeholder='Nome', value=user.name)
+
+    .control-group
+      label.control-label(for='email') Endereço:
+      .controls
+        input#email(type='text', name="email", placeholder='Endereço', value=user.email)
+
+    .control-group
+      label.control-label(for='email') E-mail:
+      .controls
+        input#username(type='text', name="email", placeholder='E-mail', value=user.email)
+
+    .control-group
+      label.control-label(for='password') Password
+      .controls
+        input#password(type='password', name="password", placeholder='Password', value=user.password)
+
+    .control-group
+      label.control-label(for='cpf') CPF
+      .controls
+        input#password(type='text', name="cpf", placeholder='CPF', value=user.cpf)
+
+    .form-actions
+      button.btn.btn-primary(type='submit') Sign up
+      &nbsp;
+      | or&nbsp;
+      a.show-login(href="/signin") login

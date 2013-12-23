@@ -32,6 +32,16 @@ exports.signup = function(req, res) {
 };
 
 /**
+ * Show cadastroBeneficiario form
+ */
+exports.cadastroBeneficiario = function(req, res) {
+    res.render('users/cadastroBeneficiario', {
+        title: 'Sign up',
+        user: new User()
+    });
+};
+
+/**
  * Logout
  */
 exports.signout = function(req, res) {

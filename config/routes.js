@@ -3,11 +3,13 @@ module.exports = function(app, passport, auth) {
     var users = require('../app/controllers/users');
     app.get('/signin', users.signin);
     app.get('/signup', users.signup);
+    app.get('/cadastro-beneficiario', users.cadastroBeneficiario);
     app.get('/signout', users.signout);
     app.get('/users/me', users.me);
 
     //Setting up the users api
     app.post('/users', users.create);
+    app.post('/cadastroBeneficiario/create', users.create);
 
     //Setting the local strategy route
     app.post('/users/session', passport.authenticate('local', {
@@ -69,6 +71,18 @@ module.exports = function(app, passport, auth) {
 
     //Finish with setting up the articleId param
     app.param('articleId', articles.article);
+
+   //Eventos Routes
+    var eventos = require('../app/controllers/eventos');
+    app.get('/eventos', eventos.all);
+    app.get('/eventos/cadastro', eventos.cadastro);
+    app.post('/eventos', auth.requiresLogin, eventos.create);
+    //app.get('/eventos/:articleId', eventos.show);
+    //app.put('/eventos/:articleId', auth.requiresLogin, auth.article.hasAuthorization, eventos.update);
+    //app.del('/eventos/:articleId', auth.requiresLogin, auth.article.hasAuthorization, eventos.destroy);
+
+    //Finish with setting up the articleId param
+    //app.param('articleId', eventos.article);
 
     //Home route
     var index = require('../app/controllers/index');
